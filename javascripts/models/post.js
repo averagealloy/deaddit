@@ -4,4 +4,8 @@ class Post {
         this.title = postJSON.title
         this.body = noteJSON.body
     }
+
+    renderLi(){
+        return `<li>${this.title}</li>`
+    }
 }

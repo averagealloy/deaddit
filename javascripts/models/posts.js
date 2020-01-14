@@ -6,7 +6,9 @@ class Posts {
         this.fetchAndLoadPosts()
     }
 
-    initbindEventListeners
+    initbindEventListeners(){
+        this.postsContainer = document.getElementById('posts-container')
+    }
 
     fetchAndLoadPosts() {
         this.adapter
@@ -20,8 +22,8 @@ class Posts {
     }
 
     render() {
-        const postsContainer = document.getElementById('posts-container')
-        postsContainer.innerHTML = this.posts.map(post => `<li>${post.title, post.body}</li>`).join('')
+        //const postsContainer = document.getElementById('posts-container')
+        this.postsContainer.innerHTML = this.posts.map(post => post.renderLi()).join('')
         
     }
 }
