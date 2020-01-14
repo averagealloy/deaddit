@@ -10,7 +10,7 @@ class Posts {
         this.adapter
         .getPosts()
         .then(posts => {
-            posts.forEach(post => this.posts.push(post))
+            posts.forEach(post => this.posts.push(new Post(post)))
         })
         .then(() => {
             this.render()
