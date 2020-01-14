@@ -8,7 +8,13 @@ class Posts {
 
     initbindEventListeners(){
         this.postsContainer = document.getElementById('posts-container')
+        this.postForm = document.getElementById('new-post-form')
+        this.postForm.addEventListener('submit', this.createPost)
     }
+
+    // createPost(){
+    //     console.log
+    // }
 
     fetchAndLoadPosts() {
         this.adapter
