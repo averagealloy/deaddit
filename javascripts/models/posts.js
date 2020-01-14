@@ -12,9 +12,10 @@ class Posts {
         this.postForm.addEventListener('submit', this.createPost)
     }
 
-    // createPost(){
-    //     console.log
-    // }
+    createPost(e){
+        e.preventDefault()
+        console.log(' hey your post is all square ')
+    }
 
     fetchAndLoadPosts() {
         this.adapter
