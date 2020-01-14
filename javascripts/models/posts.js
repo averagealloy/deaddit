@@ -19,7 +19,7 @@ class Posts {
 
     render() {
         const postsContainer = document.getElementById('posts-container')
-        postsContainer.innerHTML = 'this is where the posts are gonna be '
+        postsContainer.innerHTML = `<li>`
         
     }
 }
