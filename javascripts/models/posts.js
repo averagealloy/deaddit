@@ -2,13 +2,13 @@ class Posts {
     constructor() {
         this.posts = []
         this.adapter = new PostsAdapter()
-        this.initbindEventListeners()
+        this.inItBindEventListeners()
         this.fetchAndLoadPosts()
     }
 
-    initbindEventListeners(){
+    inItBindEventListeners(){
         this.postsContainer = document.getElementById('posts-container')
-        this.newPostBody = getElementById('new-post-body')
+        this.newPostBody = getElementById('new-post-form')
         this.postForm = document.getElementById('new-post-form')
         this.postForm.addEventListener('submit', this.createPost.bind(this))
     }
@@ -17,7 +17,12 @@ class Posts {
         e.preventDefault()
         const postValue = this.newPostBody.value
 
-        this.adapter.createPost(postValue)
+        this.adapter.createPost(postValue).then(post => {
+            this.posts.push(new Post(post))
+            this.newPostBody.value = ''
+            // need on of these for title aswell
+            this.render()
+        })
     }
 
     fetchAndLoadPosts() {
