@@ -8,7 +8,7 @@ class Posts {
 
     inItBindEventListeners(){
         this.postsContainer = document.getElementById('posts-container')
-        this.newPostBody = getElementById('new-post-form')
+        this.newPostBody = document.getElementById('new-post-form')
         this.postForm = document.getElementById('new-post-form')
         this.postForm.addEventListener('submit', this.createPost.bind(this))
     }
