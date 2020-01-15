@@ -15,7 +15,9 @@ class Posts {
 
     createPost(e){
         e.preventDefault()
-        console.log(this.newPostBody.value)
+        const postValue = this.newPostBody.value
+
+        this.adapter.createPost(postValue)
     }
 
     fetchAndLoadPosts() {
