@@ -8,8 +8,8 @@ class Posts {
 
     inItBindEventListeners(){
         this.postsContainer = document.getElementById('posts-container')
-        this.newPostTitle = document.getElementById('title')
-        this.newPostBody = document.getElementById('body')
+        this.newPostTitle = document.getElementById('titleEntry')
+        this.newPostBody = document.getElementById('bodyEntry')
         this.postForm = document.getElementById('new-post-form')
         this.postForm.addEventListener('submit', this.createPost.bind(this))
     }
@@ -17,13 +17,14 @@ class Posts {
     createPost(e){
         e.preventDefault()
         const postTitleValue = this.newPostTitle.value
-        const postBodyValue = this.newPostBody.value
-
+         const postBodyValue = this.newPostBody.value
+        console.log(postTitleValue)
+         console.log(postBodyValue)
         this.adapter.createPost(postTitleValue, postBodyValue).then(post => {
             this.posts.push(new Post(post))
             this.newPostTitle.value = ''
             this.newPostBody.value = ''
-            // need on of these for title aswell
+            
             this.render()
         })
     }
