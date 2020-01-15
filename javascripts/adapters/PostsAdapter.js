@@ -15,7 +15,7 @@ class PostsAdapter {
         return fetch(this.baseUrl, {
             method: 'POST',
             headers: {
-                'content-type' : 'application/json'
+                'Content-Type' : 'application/json'
             },
             body: JSON.stringify({post})
         }).then(res => res.json())
