@@ -8,13 +8,14 @@ class Posts {
 
     initbindEventListeners(){
         this.postsContainer = document.getElementById('posts-container')
+        this.newPostBody = getElementById('new-post-body')
         this.postForm = document.getElementById('new-post-form')
-        this.postForm.addEventListener('submit', this.createPost)
+        this.postForm.addEventListener('submit', this.createPost.bind(this))
     }
 
     createPost(e){
         e.preventDefault()
-        console.log(' hey your post is all square ')
+        console.log(this.newPostBody.value)
     }
 
     fetchAndLoadPosts() {
