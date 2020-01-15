@@ -8,9 +8,11 @@ class PostsAdapter {
         )
     }
 
-    createPost(postValue){
+    createPost(postTitleValue, postBodyValue){
         const post = {
-            body: postValue
+            title: postTitleValue,
+            body: postBodyValue
+        
         }
         return fetch(this.baseUrl, {
             method: 'POST',

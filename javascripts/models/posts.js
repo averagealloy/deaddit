@@ -18,8 +18,8 @@ class Posts {
         e.preventDefault()
         const postTitleValue = this.newPostTitle.value
          const postBodyValue = this.newPostBody.value
-        console.log(postTitleValue)
-         console.log(postBodyValue)
+        // console.log(postTitleValue)
+        //  console.log(postBodyValue)
         this.adapter.createPost(postTitleValue, postBodyValue).then(post => {
             this.posts.push(new Post(post))
             this.newPostTitle.value = ''
