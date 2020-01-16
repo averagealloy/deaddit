@@ -6,6 +6,6 @@ class Post {
     }
 
     renderLi(){
-        return `<li>${this.title}, ${this.body}</li>`
+        return `<li contenteditable="true">${this.title}, ${this.body}</li>`
     }
 }
