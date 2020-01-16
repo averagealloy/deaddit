@@ -12,9 +12,7 @@ class Posts {
         this.newPostBody = document.getElementById('bodyEntry')
         this.postForm = document.getElementById('new-post-form')
         this.postForm.addEventListener('submit', this.createPost.bind(this))
-        this.postsContainer.addEventListener('dblclick', function(){
-            console.log('double clicked')
-        })
+        this.postsContainer.addEventListener('dblclick', this.handlePostClick.bind(this))
     }
 
     createPost(e){
@@ -30,6 +28,10 @@ class Posts {
             
             this.render()
         })
+    }
+
+    handlePostClick(){
+        console.log('doubble clicked')
     }
 
     fetchAndLoadPosts() {
