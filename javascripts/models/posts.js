@@ -13,6 +13,7 @@ class Posts {
         this.postForm = document.getElementById('new-post-form')
         this.postForm.addEventListener('submit', this.createPost.bind(this))
         this.postsContainer.addEventListener('dblclick', this.handlePostClick.bind(this))
+        // this.body.addEventListener('dblclick', this.updatePost.bind(this), true)
     }
 
     createPost(e){
@@ -34,6 +35,13 @@ class Posts {
         const li = e.target
         li.contentEditable = true
         li.classList.add('editable')
+    }
+
+    updatePost(e) {
+        const li = e.target
+        li.contentEditable = false
+        li.ClassList.remove('editable')
+        conxole.log(innerHTML)
     }
 
     fetchAndLoadPosts() {

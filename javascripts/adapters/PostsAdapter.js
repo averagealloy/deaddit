@@ -22,4 +22,6 @@ class PostsAdapter {
             body: JSON.stringify({post})
         }).then(res => res.json())
     }
+
+    // add a delete function here for your third fetch call 
 }
