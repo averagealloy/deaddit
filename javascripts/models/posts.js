@@ -12,6 +12,9 @@ class Posts {
         this.newPostBody = document.getElementById('bodyEntry')
         this.postForm = document.getElementById('new-post-form')
         this.postForm.addEventListener('submit', this.createPost.bind(this))
+        this.postsContainer.addEventListener('dblclick', function(){
+            console.log('double clicked')
+        })
     }
 
     createPost(e){
