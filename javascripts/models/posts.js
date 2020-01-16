@@ -33,6 +33,7 @@ class Posts {
     handlePostClick(e){
         const li = e.target
         li.contentEditable = true
+        li.classList.add('editable')
     }
 
     fetchAndLoadPosts() {
