@@ -6,7 +6,7 @@ class Post {
     }
 
     renderLi(){
-        return `<li>${this.title}, ${this.body}</li>`
+        return `<li>${this.title} </br> ${this.body}</li>`
     }
 }
 

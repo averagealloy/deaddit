@@ -13,15 +13,14 @@ class Posts {
         this.postForm = document.getElementById('new-post-form')
         this.postForm.addEventListener('submit', this.createPost.bind(this))
         this.postsContainer.addEventListener('dblclick', this.handlePostClick.bind(this))
-        // this.body.addEventListener('dblclick', this.updatePost.bind(this), true)
+        this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)
     }
 
     createPost(e){
         e.preventDefault()
         const postTitleValue = this.newPostTitle.value
          const postBodyValue = this.newPostBody.value
-        // console.log(postTitleValue)
-        // console.log(postBodyValue)
+        
         this.adapter.createPost(postTitleValue, postBodyValue).then(post => {
             this.posts.push(new Post(post))
             this.newPostTitle.value = ''
@@ -38,10 +37,9 @@ class Posts {
     }
 
     updatePost(e) {
-        const li = e.target
-        li.contentEditable = false
-        li.ClassList.remove('editable')
-        conxole.log(innerHTML)
+        const post = e.target 
+        post.focus()
+    console.log('updating post')
     }
 
     fetchAndLoadPosts() {
