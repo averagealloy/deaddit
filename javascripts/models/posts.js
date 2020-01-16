@@ -37,9 +37,12 @@ class Posts {
     }
 
     updatePost(e) {
-        const post = e.target 
-        post.focus()
-    console.log('updating post')
+        // const post = e.target 
+        // post.focus()
+        const li = e.target
+        li.contentEditable = false
+        li.classList.remove('editable')
+        
     }
 
     fetchAndLoadPosts() {
