@@ -37,12 +37,14 @@ class Posts {
     }
 
     updatePost(e) {
-        // const post = e.target 
+         
         // post.focus()
         const li = e.target
         li.contentEditable = false
         li.classList.remove('editable')
+        const newValue = li.innerHTML
         
+        this.adapter.updatePost(newValue, id)
     }
 
     fetchAndLoadPosts() {

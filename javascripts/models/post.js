@@ -6,7 +6,7 @@ class Post {
     }
 
     renderLi(){
-        return `<li>${this.title} </br> ${this.body}</li>`
+        return `<li data-postId=${this.id}>${this.title} </br> ${this.body}</li>`
     }
 }
 
