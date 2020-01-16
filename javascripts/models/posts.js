@@ -30,8 +30,8 @@ class Posts {
         })
     }
 
-    handlePostClick(){
-        console.log('doubble clicked')
+    handlePostClick(e){
+        console.log(e.target)
     }
 
     fetchAndLoadPosts() {
