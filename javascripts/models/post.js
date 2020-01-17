@@ -6,9 +6,9 @@ class Post {
     }
 
     renderLi(){
-        return `<h2 class="title" data-id=${this.id}>${this.title}</h2> 
+        return` <h2 class="header-title" data-id=${this.id}>${this.title}</h2> 
         </br>
-        <p class="body" data-id=${this.id}> ${this.body}</p>`
+        <p class="post-body" data-id=${this.id}> ${this.body}</p>`
     }
 }
 

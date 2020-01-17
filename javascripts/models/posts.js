@@ -38,22 +38,16 @@ class Posts {
 
     updatePost(e) {
          
-        // post.focus()
+        
         const li = e.target
         li.contentEditable = false
         li.classList.remove('editable')
-        const id = li.dataset.id
+        const updateId = li.dataset.id
+        let newTitle = document.getElementsByClassName('header-title')
         debugger
-         const newTitle = document.getElementById('title')
-        //  .getElementById('id')
-        
-         const newBody = document.getElementsBy('body')
-        //  .getElementById('id')
-        // const newTitle = 
-         
-        
-        // console.log(id)
-        this.adapter.updatePost(newTitle, newBody, id)
+        let newBody = document.getElementsByClassName('post-body')
+        newBody = newBody.getElementById(id)
+        this.adapter.updatePost(newTitle, newBody, updateId)
     }
 
     fetchAndLoadPosts() {
