@@ -14,3 +14,14 @@
 
 
 // // contenteditable="true" this is pretty cool 
+
+ class Post {
+        constructor(postJSON){
+            this.id = postJSON.id
+            this.title = postJSON.title
+            this.body = postJSON.content
+        }
+        renderPostName(){
+            return `<li data-id=${this.id}>${this.title}: ${this.content}</li>`
+        }
+    }
