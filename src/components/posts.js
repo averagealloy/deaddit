@@ -67,3 +67,32 @@
         
 //     }
 // }
+
+ class Posts{
+     constructor() {
+         this.posts = []
+         this.adapter = new PostsAdapter()
+         this.initBindingsAndEventListeners()
+         this.fetchAndLoadPosts
+     }
+     initBindingsAndEventListeners() {
+         this.postsContainer = document.getElementById('posts-container')
+         this.postForm = document.getElementById('new-post')
+         this.postTitle = document.getElementById('new-post-title')
+         this.postContent = document.getElementById('new-post-content')
+         this.postForm.addEventListener('submit', this.createPost.bind(this), true)
+     }
+
+     createPost(e) {
+         e.preventDefault()
+         const title = this.postTitle.nodeValue
+         const content = this.postContent.nodeValue
+
+         this.adapter.createPost(title, content).then( note =>{
+             this.posts.push(new Post(post))
+             this.postTitle.value = ''
+             this.postContent.value = ''
+             this.render()
+         })
+     }
+ }
