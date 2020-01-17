@@ -43,7 +43,7 @@ class Posts {
         li.contentEditable = false
         li.classList.remove('editable')
         const id = li.dataset.id
-        const newTitle = document.getElementsByClassName("title")
+        const newTitle = document.getElementsByClassName('title')
         // debugger
         const newBody = document.getElementsByClassName("body")
         // const newTitle = 
