@@ -1,5 +1,5 @@
-class App {
-    constructor(){
-        this.posts = new Posts()
-    }
-}
+// class App {
+//     constructor(){
+//         this.posts = new Posts()
+//     }
+// }
