@@ -42,9 +42,15 @@ class Posts {
         const li = e.target
         li.contentEditable = false
         li.classList.remove('editable')
-        const newValue = li.innerHTML
+        const id = li.dataset.id
+        const newTitle = document.getElementsByClassName("title")
+        // debugger
+        const newBody = document.getElementsByClassName("body")
+        // const newTitle = 
+         
         
-        this.adapter.updatePost(newValue, id)
+        // console.log(id)
+        this.adapter.updatePost(newTitle, newBody, id)
     }
 
     fetchAndLoadPosts() {
