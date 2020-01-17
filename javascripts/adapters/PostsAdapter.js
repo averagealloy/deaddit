@@ -26,6 +26,7 @@ class PostsAdapter {
     updatePost( postTitleValue, postBodyValue, id){
         
         const post = {
+            id: id ,
             title: postTitleValue,
             body: postBodyValue
         }
@@ -39,5 +40,5 @@ class PostsAdapter {
         }).then(res => res.json())
     }
 
-    // add a delete function here for your third fetch call 
+
 }
