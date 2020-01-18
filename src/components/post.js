@@ -19,9 +19,9 @@
         constructor(postJSON){
             this.id = postJSON.id
             this.title = postJSON.title
-            this.body = postJSON.content
+            this.content = postJSON.content
         }
-        renderPostName(){
+        renderPostList(){
             return `<li data-id=${this.id}>${this.title}: ${this.content}</li>`
         }
     }

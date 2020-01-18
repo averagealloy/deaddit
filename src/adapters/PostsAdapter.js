@@ -8,36 +8,37 @@ class PostsAdapter {
         )
     }
 
-    createPost(postTitleValue, postBodyValue){
+    createPost(title, content){
         const post = {
-            title: postTitleValue,
-            body: postBodyValue
+            title: title,
+            content: content
         
         }
         return fetch(this.baseUrl, {
             method: 'POST',
             headers: {
-                'Content-Type' : 'application/json'
+                'content-Type' : 'application/json'
             },
             body: JSON.stringify({post})
-        }).then(res => res.json())
+        })
+        .then(res => res.json())
     }
 
-    updatePost( postTitleValue, postBodyValue, id){
+    updatePost( title, content, id){
         
         const post = {
-            id: id ,
-            title: postTitleValue,
-            body: postBodyValue
+            title: title,
+            content: content
         }
         // console.log(id)
         return fetch(`${this.baseUrl}/${id}`, {
         method: 'PATCH',
         headers: {
-            'Content-Type' : 'application/json' 
+            'content-Type' : 'application/json' 
         },
             body: JSON.stringify({post})
-        }).then(res => res.json())
+        })
+        .then(res => res.json())
     }
 
 

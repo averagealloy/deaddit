@@ -73,7 +73,7 @@
          this.posts = []
          this.adapter = new PostsAdapter()
          this.initBindingsAndEventListeners()
-         this.fetchAndLoadPosts
+         this.fetchAndLoadPosts()
      }
      initBindingsAndEventListeners() {
          this.postsContainer = document.getElementById('posts-container')
@@ -85,14 +85,29 @@
 
      createPost(e) {
          e.preventDefault()
-         const title = this.postTitle.nodeValue
-         const content = this.postContent.nodeValue
+         const title = this.postTitle.value
+         const content = this.postContent.value
 
-         this.adapter.createPost(title, content).then( note =>{
-             this.posts.push(new Post(post))
+         this.adapter.createPost(title, content).then( post =>{
+             this.posts.push(new Post ( post ))
              this.postTitle.value = ''
              this.postContent.value = ''
              this.render()
          })
+     }
+
+     fetchAndLoadPosts(){
+         this.adapter
+         .getPosts()
+         .then( posts => {
+             posts.forEach( post => this.posts.push(new Post( post)))
+         })
+         .then( () => {
+             this.render()
+         })
+     }
+
+     render(){
+         this.postsContainer.innerHTML = this.posts.map(post => post.renderPostList()).join('')
      }
  }
