@@ -99,8 +99,9 @@
      }
      editPost(e){
          this.togglePost(e)
-     }
-
+         
+        }
+        
         togglePost(e) {
             const li = e.target
             li.contentEditable = true
