@@ -22,6 +22,6 @@
             this.content = postJSON.content
         }
         renderPostList(){
-            return `<li data-id=${this.id}>${this.title}: ${this.content}</li>`
+            return `</br><li data-id=${this.id}>${this.title} : ${this.content}</li>`
         }
     }
