@@ -80,7 +80,9 @@
          this.postForm = document.getElementById('new-post')
          this.postTitle = document.getElementById('new-post-title')
          this.postContent = document.getElementById('new-post-content')
-         this.postForm.addEventListener('submit', this.createPost.bind(this), true)
+         this.postForm.addEventListener('submit', this.createPost.bind(this))
+         this.postsContainer.addEventListener('dblclick', this.editPost.bind(this))
+         this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)
      }
 
      createPost(e) {
@@ -95,6 +97,26 @@
              this.render()
          })
      }
+     editPost(e){
+         this.togglePost(e)
+     }
+
+        togglePost(e) {
+            const li = e.target
+            li.contentEditable = true
+            li.focus()
+            li.classList.add('editable')
+        }
+
+        updatePost(e) {
+         const li = e.target
+         li.contentEditable = false 
+         li.classList.remove('editable')
+         const value = li.innerHTML
+         const id = li.dataset.id
+         let [title, content] = value.split(':')
+         this.adapter.updatePost(title, content, id)   
+        }
 
      fetchAndLoadPosts(){
          this.adapter
