@@ -30,7 +30,7 @@ class PostsAdapter {
             title: title,
             content: content
         }
-        // console.log(id)
+        
         return fetch(`${this.baseUrl}/${id}`, {
         method: 'PATCH',
         headers: {
