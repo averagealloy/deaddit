@@ -85,6 +85,8 @@
          this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)
      }
 
+    // post begin 
+
      createPost(e) {
          e.preventDefault()
          const title = this.postTitle.value
@@ -133,4 +135,7 @@
      render(){
          this.postsContainer.innerHTML = this.posts.map(post => post.renderPostList()).join('')
      }
+    //  post end
+
+    // comments begin 
  }
