@@ -4,8 +4,7 @@ class PostsAdapter {
         'http://localhost:3000/api/num1/posts'
     }
     getPosts(){
-        return fetch(this.baseUrl).then(res => res.json()
-        )
+        return fetch(this.baseUrl).then(res => res.json())
     }
 
     createPost(title, content){
@@ -19,7 +18,7 @@ class PostsAdapter {
             headers: {
                 'content-Type' : 'application/json'
             },
-            body: JSON.stringify({post})
+            content: JSON.stringify({post})
         })
         .then(res => res.json())
     }
@@ -36,7 +35,7 @@ class PostsAdapter {
         headers: {
             'content-Type' : 'application/json' 
         },
-            body: JSON.stringify({post})
+            content: JSON.stringify({post})
         })
         .then(res => res.json())
     }
