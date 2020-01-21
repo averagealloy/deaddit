@@ -13,12 +13,13 @@ class PostsAdapter {
             content: content
         
         }
+        
         return fetch(this.baseUrl, {
             method: 'POST',
             headers: {
-                'content-Type' : 'application/json'
+                'Content-Type' : 'application/json'
             },
-            content: JSON.stringify({post})
+            body: JSON.stringify(post)
         })
         .then(res => res.json())
     }
@@ -33,9 +34,9 @@ class PostsAdapter {
         return fetch(`${this.baseUrl}/${id}`, {
         method: 'PATCH',
         headers: {
-            'content-Type' : 'application/json' 
+            'Content-Type' : 'application/json' 
         },
-            content: JSON.stringify({post})
+            body: JSON.stringify(post)
         })
         .then(res => res.json())
     }

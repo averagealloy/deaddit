@@ -21,6 +21,7 @@
          e.preventDefault()
          const title = this.postTitle.value
          const content = this.postContent.value
+       
 
          this.adapter.createPost(title, content).then( post =>{
              this.posts.push(new Post ( post ))
