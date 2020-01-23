@@ -6,6 +6,8 @@
             // this.comment = postJSON.comment
         }
         renderPostList(){
-            return `</br><li data-id=${this.id}>${this.title} : ${this.content}</li>`
+            // added a comment btn to 
+            return `</br><li data-id=${this.id}>${this.title} : ${this.content} </li><ul> <button btnId="commentBtn">Comment</button></ul>` 
+            
         }
     }

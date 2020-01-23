@@ -13,6 +13,8 @@
          this.postForm.addEventListener('submit', this.createPost.bind(this))
          this.postsContainer.addEventListener('dblclick', this.editPost.bind(this))
          this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)
+        //  this is my new event listner for commentbtn 
+         this.postsContainer.addEventListener('commentBtn', this.createComment.bind(this))
      }
 
     // post begin 
