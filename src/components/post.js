@@ -7,7 +7,18 @@
         }
         renderPostList(){
             // added a comment btn to 
-            return `</br><li data-id=${this.id}>${this.title} : ${this.content} </li><ul> <button btnId="commentBtn">Comment</button></ul>` 
+            return `</br>
+                <li 
+                    data-id=${this.id}>
+                    ${this.title} : ${this.content} 
+                    <br /> 
+                    <button data-id=${this.id} id="commentBtn">Comment</button>
+                </li> ` 
             
         }
+
+    
+        // renderCommentList(){
+        //     return `<li data-id=${this.id}>${this.comment}</li>`
+        // }
     }
