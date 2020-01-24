@@ -100,18 +100,19 @@
         const form = document.createElement("form")
         const textBox = document.createElement("input")
         const submit = document.createElement("input")
-
+        submit.setAttribute("type","submit")
 
         form.append(textBox, submit)
-
 
         this.parentElement.appendChild(form) 
         console.log(form)
         // grab correct post here 
-
+    }
+    
         // append form to that post once clicked
 
-    }
+    
 
     
  }
+
