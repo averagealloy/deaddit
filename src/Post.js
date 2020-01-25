@@ -1,1 +1,3 @@
 // custom class
+
+class Post {}
