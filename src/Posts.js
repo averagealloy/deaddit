@@ -5,6 +5,7 @@ class Posts{
         this.adapter = new PostsAdapter()
         this.initBindingsAndEventListeners()
         this.fetchAndLoadPosts()
+      
     }
 
     initBindingsAndEventListeners() {
@@ -14,8 +15,8 @@ class Posts{
         this.postContent = document.getElementById('new-post-content')
         this.postForm.addEventListener('submit', this.createPost.bind(this))
         //  this.commentContainer = document.getElementById('comments-container')
-       //  this.postsContainer.addEventListener('dblclick', this.editPost.bind(this))
-       //  this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)
+        //this.postsContainer.addEventListener('dblclick', this.editPost.bind(this))
+        //this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)
        //  this is my new event listner for commentbtn 
        //   this.commentContainer.addEventListener('commentBtn', this.displayCommentForm.bind(this))
        // this.commentButton = document.getElementById('commentBtn')
@@ -76,17 +77,17 @@ class Posts{
     }
 
     render(){
-        debugger
         this.postsContainer.innerHTML = this.posts.map(post => {
            return post.renderPostList()}).join('')
        //  debugger
         this.commentButton = document.querySelectorAll("#commentBtn")
         this.commentButton.forEach((button) => {
-           button.addEventListener('click', this.createCommentForm)
+            button.addEventListener('click', this.setComments.bind(this, button))
+            button.addEventListener('click', this.createCommentForm)
         })
        //  this.commentButton.addEventListener('click', this.createComment)
        
-       const postList = document.querySelectorAll(".post")
+    //    const postList = document.querySelectorAll(".post")
     //    postList.forEach((post) => {
     //        post.addEventListener('dblclick', this.editPost.bind(this))
     //        //post.addEventListener('change', this.updatePost.bind(this))
@@ -96,6 +97,18 @@ class Posts{
 
    // comments begin 
 
+
+
+   setComments(ele) {
+    const post =  this.posts.find((post) => {
+        return post.id === parseInt(ele.dataset.id)
+    })     
+    
+    displayComments(post)
+   }
+
+   
+
     createCommentForm() {
        const form = document.createElement("form")
        const textBox = document.createElement("input")
@@ -104,7 +117,6 @@ class Posts{
     
        form.append(textBox, submit)
        this.parentElement.appendChild(form) 
- 
    }
      
    

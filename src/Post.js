@@ -10,8 +10,6 @@ class Post {
         })
     }
     renderPostList(){
-
-
         return `
             <div class="text-center">
                 <div class="post">

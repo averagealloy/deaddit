@@ -7,17 +7,4 @@ class Comment {
         this.postId = commentJSON.post_id
     }
 
-    // renderComments(){
-
-
-    //     return `
-    //         <div class="text-center">
-    //             <div class='content>
-
-    //             </div>
-    //         </div>
-    //     `
-        
-    // }
-
 }
