@@ -1,5 +1,4 @@
 // custom class
-
 class Comment {
     constructor(commentJSON){
         this.id = commentJSON.id

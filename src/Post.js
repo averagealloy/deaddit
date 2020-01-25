@@ -12,7 +12,6 @@ class Post {
     renderPostList(){
         return `
             <div class="text-center">
-               
                 <div class="card post" data-id="${this.id}">
                     <div class="card-body">
                         <h4 class="post-title" data-id=${this.id}> ${this.title} </h4>
@@ -24,7 +23,6 @@ class Post {
                         <button class="btn btn-primary comment-create" data-id=${this.id} id="commentBtn">Make a comment here </button> 
                     </div>
                 </div>
-
             </div>
         `
         

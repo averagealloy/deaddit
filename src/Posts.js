@@ -14,8 +14,6 @@ class Posts{
         this.postTitle = document.getElementById('new-post-title')
         this.postContent = document.getElementById('new-post-content')
         this.postForm.addEventListener('submit', this.createPost.bind(this))
-  
-   
     }
   
     createPost(e) {
@@ -23,13 +21,16 @@ class Posts{
         const title = this.postTitle.value
         const content = this.postContent.value
       
-
-        this.adapter.createPost(title, content).then( post =>{
-            this.posts.push(new Post ( post ))
-            this.postTitle.value = ''
-            this.postContent.value = ''
-            this.render()
-        })
+        if(title.trim().length > 0 && content.trim().length > 0) {
+            this.adapter.createPost(title, content).then( post =>{
+                this.posts.push(new Post ( post ))
+                this.postTitle.value = ''
+                this.postContent.value = ''
+                this.render()
+            })
+        } else {
+            alert("Post not long enough!")
+        }
     }
    
     fetchAndLoadPosts(){
@@ -55,18 +56,14 @@ class Posts{
        
     }
    
-
-
-
-   setComments(ele) {
-    const post =  this.posts.find((post) => {
-        return post.id === parseInt(ele.dataset.id)
-    })     
-    this.displayComments(post)
+    setComments(ele) {
+        const post =  this.posts.find((post) => {
+            return post.id === parseInt(ele.dataset.id)
+        })     
+        this.displayComments(post)
    }
 
-   displayComments(post) {
-    
+   displayComments(post) {  
     const postEle = document.querySelector(`.post-${post.id}`)
     const div = document.createElement("div")  
     div.innerHTML = ""
@@ -77,7 +74,7 @@ class Posts{
         div.appendChild(content) 
       })
       
-      postEle.appendChild(div)
+    postEle.appendChild(div)
    }
 
 
@@ -99,23 +96,28 @@ class Posts{
         
         form.append(textBox, submit)
         ele.parentElement.appendChild(form) 
-       form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', (e) => {
         e.preventDefault()
-      
+            
         this.postComment(e)
        })
    }
 
    postComment(e) {
-    const content =  e.target.elements.commentContent.value
-    const postId = e.target.dataset.id
-    const post = this.posts.find((post) =>  post.id === parseInt(postId))
-    this.adapter.createComment(content, postId).then( comment => {
-        post.comments.push(new Comment(comment))
-         this.render()
-     })
-   }
-   
+        const content =  e.target.elements.commentContent.value
+        const postId = e.target.dataset.id
+        const post = this.posts.find((post) =>  post.id === parseInt(postId))
+        if(content.trim().length > 0) {
+            this.adapter.createComment(content, postId).then( comment => {
+                post.comments.push(new Comment(comment))
+                    this.render()
+                })
+
+        } else {
+            alert("Post not long enough!")
+        }
+    }
+
 }
 
 
