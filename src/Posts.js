@@ -83,7 +83,7 @@ class Posts{
         })
        //  this.commentButton.addEventListener('click', this.createComment)
        
-       const postList = document.querySelectorAll("li")
+       const postList = document.querySelectorAll(".post")
        postList.forEach((post) => {
            post.addEventListener('dblclick', this.editPost.bind(this))
        })

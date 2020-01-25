@@ -8,21 +8,11 @@ class Post {
         // this.comment = postJSON.comment
     }
     renderPostList(){
-        // added a comment btn to 
-        // return `</br>
-        //     <div>
-        //         <li data-id=${this.id}>
-        //             <p class="post-title>${this.title} 
-        //               ${this.content} </p>
-        //             <br /> 
-        //         </li> 
-        //         <button data-id=${this.id} id="commentBtn">Make a comment here </button>
-        //     </div>    
-        //         ` 
+
 
         return `
             <div class="text-center">
-                <div>
+                <div class="post">
                     <h4 class="post-title"> ${this.title} </h4>
                     <p class="post-content"> ${this.content} </p>
                     <br /> 
