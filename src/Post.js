@@ -9,6 +9,7 @@ class Post {
             return new Comment(comment)
         })
     }
+    
     renderPostList(){
         return `
             <div class="text-center">

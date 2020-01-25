@@ -4,6 +4,7 @@ class PostsAdapter {
         this.baseUrl = 
         'http://localhost:3000'
     }
+
     getPosts(){
         return fetch(`${this.baseUrl}/api/num1/posts`).then(res => res.json())
     }
@@ -12,7 +13,6 @@ class PostsAdapter {
         const post = {
             title: title,
             content: content
-        
         }
         
         return fetch(`${this.baseUrl}/api/num1/posts`, {
