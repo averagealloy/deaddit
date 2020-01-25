@@ -5,7 +5,7 @@ class Post {
         this.id = postJSON.id
         this.title = postJSON.title
         this.content = postJSON.content
-        this.comment = postJSON.comments.map((comment) => {
+        this.comments = postJSON.comments.map((comment) => {
             return new Comment(comment)
         })
     }

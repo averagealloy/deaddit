@@ -108,10 +108,15 @@ class Posts{
    }
 
    displayComments(post) {
-      post.comments.forEach(() => {
-        // build comment html  
-        return ``
+    const div = document.createElement("div")
+    post.comments.forEach((comment) => {
+        const content = document.createElement("p")
+        content.classList = `comment ${comment.id}`
+        content.textContent = `comment: ${comment.content}`
+        div.appendChild(content) 
+          
       })
+      document.querySelector(".post").appendChild(div)
    }
 
 
