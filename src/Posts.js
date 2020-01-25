@@ -14,18 +14,10 @@ class Posts{
         this.postTitle = document.getElementById('new-post-title')
         this.postContent = document.getElementById('new-post-content')
         this.postForm.addEventListener('submit', this.createPost.bind(this))
-        //  this.commentContainer = document.getElementById('comments-container')
-        //this.postsContainer.addEventListener('dblclick', this.editPost.bind(this))
-        //this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)
-       //  this is my new event listner for commentbtn 
-       //   this.commentContainer.addEventListener('commentBtn', this.displayCommentForm.bind(this))
-       // this.commentButton = document.getElementById('commentBtn')
+  
    
     }
-   // post begin 
-
-
-
+  
     createPost(e) {
         e.preventDefault()
         const title = this.postTitle.value
@@ -39,32 +31,7 @@ class Posts{
             this.render()
         })
     }
-    // editPost(e){
-    //     this.togglePost(e)
-        
-    //    }
-       
-    //    togglePost(e) {
-    //        const li = e.target
-    //        li.contentEditable = true
-    //        li.focus()
-    //        li.classList.add('editable')
-    //        this.updatePost(e)
-    //    }
-
-    //    updatePost(e) {
-        // idk what they were trying to do, convert text to input fields, update on a change/ offFocus event.
-    //     const dataHTML = e.target
-    //     dataHTML.contentEditable = false 
-    //     dataHTML.classList.remove('editable')
-    //     const updatedData = dataHTML.innerHTML
-    //     const id = dataHTML.dataset.id
-    //     console.log("BANANAS")
-
-
-    //     //this.adapter.updatePost(updatedData, id)   
-    //    }
-
+   
     fetchAndLoadPosts(){
         this.adapter
         .getPosts()
@@ -79,23 +46,15 @@ class Posts{
     render(){
         this.postsContainer.innerHTML = this.posts.map(post => {
            return post.renderPostList()}).join('')
-       //  debugger
+       
         this.commentButton = document.querySelectorAll("#commentBtn")
         this.commentButton.forEach((button) => {
             button.addEventListener('click', this.setComments.bind(this, button), {once: true})
             button.addEventListener('click', this.createCommentForm.bind(this, button), {once: true})
         })
-       //  this.commentButton.addEventListener('click', this.createComment)
        
-    //    const postList = document.querySelectorAll(".post")
-    //    postList.forEach((post) => {
-    //        post.addEventListener('dblclick', this.editPost.bind(this))
-    //        //post.addEventListener('change', this.updatePost.bind(this))
-    //    })
     }
-   //  post end
-
-   // comments begin 
+   
 
 
 
@@ -107,10 +66,9 @@ class Posts{
    }
 
    displayComments(post) {
-    // const postEle = document.querySelector(".post")
+    
     const postEle = document.querySelector(`.post-${post.id}`)
-    const div = document.createElement("div") // creating a div so that the comments can live in 
-    // for each comment 
+    const div = document.createElement("div")  
     div.innerHTML = ""
     post.comments.forEach((comment) => {
         const content = document.createElement("p")
@@ -118,7 +76,7 @@ class Posts{
         content.textContent = `comment: ${comment.content}`
         div.appendChild(content) 
       })
-      //div.innerHTML = ""
+      
       postEle.appendChild(div)
    }
 
@@ -130,15 +88,20 @@ class Posts{
         const submit = document.createElement("button")
         
         submit.textContent = "Submit"
+        submit.classList.add("btn", "btn-primary", "comment-submit")
+
         textBox.name = "commentContent"
         textBox.setAttribute("type", "text")
+        textBox.placeholder = `Enter a comment:`
+        textBox.classList.add("form-control", "comment-input")
+
         form.setAttribute("data-id", ele.dataset.id)
         
         form.append(textBox, submit)
         ele.parentElement.appendChild(form) 
        form.addEventListener('submit', (e) => {
         e.preventDefault()
-        //form.remove()
+      
         this.postComment(e)
        })
    }

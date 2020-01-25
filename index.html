@@ -11,12 +11,19 @@
 <body>
 
     <div class="container">
-        <h1>welcome to Deaddit!</h1>
-        <form id="new-post">
-          Title Town: <input type="text" id="new-post-title"> </br>
-          Post Place:<textarea type="text" id="new-post-content"></textarea></br>
-          <input type="submit">
+        <h1 class="text-center">Welcome to Deaddit!</h1>
+        <form id="new-post" class="post-form">
+          <div class="form-group text-center">
+            <label for="post-title">Title Town:</label>
+            <input type="text" name="post-title" class="form-control" id="new-post-title">
+          </div>
+          <div class="form-group text-center">
+            <label for="post-content">Post Place:</label>
+            <textarea type="text" class="form-control" name="post-content" id="new-post-content"></textarea></br>
+          </div>
+          <button class="btn btn-primary form-control" type="submit">Create new /d thread</button>
         </form>
+
         <div id="posts-container">
   
       </div>      

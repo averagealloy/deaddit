@@ -12,14 +12,19 @@ class Post {
     renderPostList(){
         return `
             <div class="text-center">
-                <div class="post" data-id="${this.id}">
-                    <h4 class="post-title" data-id=${this.id}> ${this.title} </h4>
-                    <p class="post-content" data-id=${this.id}> ${this.content} </p>
-                    <br /> 
+               
+                <div class="card post" data-id="${this.id}">
+                    <div class="card-body">
+                        <h4 class="post-title" data-id=${this.id}> ${this.title} </h4>
+                    </div>
+                    <div class="card-text>
+                        <p class="post-content" data-id=${this.id}> ${this.content} </p>
+                    </div>
+                    <div class="interactive-comments post-${this.id}"> 
+                        <button class="btn btn-primary comment-create" data-id=${this.id} id="commentBtn">Make a comment here </button> 
+                    </div>
                 </div>
-                <div class="interactive-comments post-${this.id}"> 
-                    <button class="btn btn-primary comment-create" data-id=${this.id} id="commentBtn">Make a comment here </button> 
-                </div>
+
             </div>
         `
         

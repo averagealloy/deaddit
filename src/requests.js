@@ -25,22 +25,6 @@ class PostsAdapter {
         .then(res => res.json())
     }
 
-    // updatePost( data, id){
-    //     debugger
-    //     const post = {
-    //         title: title,
-    //         content: content
-    //     }
-        
-    //     return fetch(`${this.baseUrl}/${id}`, {
-    //     method: 'PATCH',
-    //     headers: {
-    //         'Content-Type' : 'application/json' 
-    //     },
-    //         body: JSON.stringify(post)
-    //     })
-    //     .then(res => res.json())
-    // }
 
     createComment(content, postId){
         const comment = {
