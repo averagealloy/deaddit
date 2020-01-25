@@ -104,10 +104,17 @@ class Posts{
         return post.id === parseInt(ele.dataset.id)
     })     
     
-    displayComments(post)
+    this.displayComments(post)
    }
 
-   
+   displayComments(post) {
+      post.comments.forEach(() => {
+        // build comment html  
+        return ``
+      })
+   }
+
+
 
     createCommentForm() {
        const form = document.createElement("form")
