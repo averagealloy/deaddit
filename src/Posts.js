@@ -82,8 +82,8 @@ class Posts{
        //  debugger
         this.commentButton = document.querySelectorAll("#commentBtn")
         this.commentButton.forEach((button) => {
-            button.addEventListener('click', this.setComments.bind(this, button))
-            button.addEventListener('click', this.createCommentForm)
+            button.addEventListener('click', this.setComments.bind(this, button), {once: true})
+            button.addEventListener('click', this.createCommentForm.bind(this, button), {once: true})
         })
        //  this.commentButton.addEventListener('click', this.createComment)
        
@@ -103,36 +103,57 @@ class Posts{
     const post =  this.posts.find((post) => {
         return post.id === parseInt(ele.dataset.id)
     })     
-    
     this.displayComments(post)
    }
 
    displayComments(post) {
-    const div = document.createElement("div")
+    // const postEle = document.querySelector(".post")
+    const postEle = document.querySelector(`.post-${post.id}`)
+    const div = document.createElement("div") // creating a div so that the comments can live in 
+    // for each comment 
+    div.innerHTML = ""
     post.comments.forEach((comment) => {
         const content = document.createElement("p")
         content.classList = `comment ${comment.id}`
         content.textContent = `comment: ${comment.content}`
         div.appendChild(content) 
-          
       })
-      document.querySelector(".post").appendChild(div)
+      //div.innerHTML = ""
+      postEle.appendChild(div)
    }
 
 
 
-    createCommentForm() {
-       const form = document.createElement("form")
-       const textBox = document.createElement("input")
-       const submit = document.createElement("input")
-       submit.setAttribute("type","submit")
-    
-       form.append(textBox, submit)
-       this.parentElement.appendChild(form) 
+    createCommentForm(ele) {
+        const form = document.createElement("form")
+        const textBox = document.createElement("input")
+        const submit = document.createElement("button")
+        
+        submit.textContent = "Submit"
+        textBox.name = "commentContent"
+        textBox.setAttribute("type", "text")
+        form.setAttribute("data-id", ele.dataset.id)
+        
+        form.append(textBox, submit)
+        ele.parentElement.appendChild(form) 
+       form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        //form.remove()
+        this.postComment(e)
+       })
    }
-     
-   
 
+   postComment(e) {
+    const content =  e.target.elements.commentContent.value
+    const postId = e.target.dataset.id
+    const post = this.posts.find((post) =>  post.id === parseInt(postId))
+    this.adapter.createComment(content, postId).then( comment => {
+        post.comments.push(new Comment(comment))
+         this.render()
+     })
+   }
    
 }
+
+
 

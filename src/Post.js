@@ -12,19 +12,17 @@ class Post {
     renderPostList(){
         return `
             <div class="text-center">
-                <div class="post">
+                <div class="post" data-id="${this.id}">
                     <h4 class="post-title" data-id=${this.id}> ${this.title} </h4>
                     <p class="post-content" data-id=${this.id}> ${this.content} </p>
                     <br /> 
                 </div>
-                <button class="btn btn-primary comment-create" data-id=${this.id} id="commentBtn">Make a comment here </button>
+                <div class="interactive-comments post-${this.id}"> 
+                    <button class="btn btn-primary comment-create" data-id=${this.id} id="commentBtn">Make a comment here </button> 
+                </div>
             </div>
         `
         
     }
 
-
-    // renderCommentList(){
-    //     return `<li data-id=${this.id}>${this.comment}</li>`
-    // }
 }
