@@ -2,10 +2,10 @@
 class PostsAdapter {
     constructor(){
         this.baseUrl = 
-        'http://localhost:3000/api/num1/posts'
+        'http://localhost:3000'
     }
     getPosts(){
-        return fetch(this.baseUrl).then(res => res.json())
+        return fetch(`${this.baseUrl}/api/num1/posts`).then(res => res.json())
     }
 
     createPost(title, content){
@@ -25,7 +25,7 @@ class PostsAdapter {
         .then(res => res.json())
     }
 
-    // updatePost( title, content, id){
+    // updatePost( data, id){
     //     debugger
     //     const post = {
     //         title: title,

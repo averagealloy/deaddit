@@ -38,29 +38,31 @@ class Posts{
             this.render()
         })
     }
-    editPost(e){
-        this.togglePost(e)
+    // editPost(e){
+    //     this.togglePost(e)
         
-       }
+    //    }
        
-       togglePost(e) {
-           const li = e.target
-           li.contentEditable = true
-           li.focus()
-           li.classList.add('editable')
-           debugger
-       }
+    //    togglePost(e) {
+    //        const li = e.target
+    //        li.contentEditable = true
+    //        li.focus()
+    //        li.classList.add('editable')
+    //        this.updatePost(e)
+    //    }
 
-       updatePost(e) {
-        const li = e.target
-        li.contentEditable = false 
-        li.classList.remove('editable')
-        const value = li.innerHTML
-        const id = li.dataset.id
-        let [title, content] = value.split(':')
-        console.log("BANANAS") 
-        this.adapter.updatePost(title, content, id)   
-       }
+    //    updatePost(e) {
+        // idk what they were trying to do, convert text to input fields, update on a change/ offFocus event.
+    //     const dataHTML = e.target
+    //     dataHTML.contentEditable = false 
+    //     dataHTML.classList.remove('editable')
+    //     const updatedData = dataHTML.innerHTML
+    //     const id = dataHTML.dataset.id
+    //     console.log("BANANAS")
+
+
+    //     //this.adapter.updatePost(updatedData, id)   
+    //    }
 
     fetchAndLoadPosts(){
         this.adapter
@@ -74,6 +76,7 @@ class Posts{
     }
 
     render(){
+        debugger
         this.postsContainer.innerHTML = this.posts.map(post => {
            return post.renderPostList()}).join('')
        //  debugger
@@ -84,9 +87,10 @@ class Posts{
        //  this.commentButton.addEventListener('click', this.createComment)
        
        const postList = document.querySelectorAll(".post")
-       postList.forEach((post) => {
-           post.addEventListener('dblclick', this.editPost.bind(this))
-       })
+    //    postList.forEach((post) => {
+    //        post.addEventListener('dblclick', this.editPost.bind(this))
+    //        //post.addEventListener('change', this.updatePost.bind(this))
+    //    })
     }
    //  post end
 
@@ -97,10 +101,8 @@ class Posts{
        const textBox = document.createElement("input")
        const submit = document.createElement("input")
        submit.setAttribute("type","submit")
-       
+    
        form.append(textBox, submit)
-
-
        this.parentElement.appendChild(form) 
  
    }
