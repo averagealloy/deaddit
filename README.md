@@ -5,7 +5,7 @@ index > app > posts > post
 before we get into it here is a link to the other side of this coin 
 : https://github.com/averagealloy/deaddit_api
 
-    *** Alright this is the third version of the program 
+    *** Alright this is the third version of the program  ******
     1.not great 
     2. a little better 
     3. (and most recent) better archhitecturally and fixed the file structure it was a bit nonsensical prior.
