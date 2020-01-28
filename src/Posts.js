@@ -41,7 +41,7 @@ class Posts{
         })
         .then( () => {
             this.render()
-        })
+        }) 
     }
 
     render(){
@@ -102,17 +102,22 @@ class Posts{
         this.postComment(e)
        })
    }
-
+   
    postComment(e) {
+       console.log(e.target)
         const content =  e.target.elements.commentContent.value
         const postId = e.target.dataset.id
         const post = this.posts.find((post) =>  post.id === parseInt(postId))
         if(content.trim().length > 0) {
-            this.adapter.createComment(content, postId).then( comment => {
+            this.adapter.createComment(content, postId)
+            .then( comment => {
                 post.comments.push(new Comment(comment))
                     this.render()
                 })
+                .catch(err => {
+                    alert(err.status)
 
+                })
         } else {
             alert("Post not long enough!")
         }

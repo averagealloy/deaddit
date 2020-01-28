@@ -39,6 +39,13 @@ class PostsAdapter {
             },
             body: JSON.stringify(comment)
         })
-        .then(res => res.json())
+        .then(res => {
+            // catch(looking for a status that is out side the range of 200(199-299))/ or use res.ok
+            //  throw show a string that says "hey something wrong please fix it" + res 
+            if (!res.ok){
+                throw res
+            }
+            return res.json()
+        })
     }
 }
